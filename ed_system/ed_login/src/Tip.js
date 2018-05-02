@@ -6,12 +6,12 @@ const STYLE_CSS = css({
     height: '35px',
     margin: '100px 0 0 50px',
     position: 'relative',
-    '> #tip': {
+    '> .tip': {
         width: '338px',
         height: '33px',
-        background: 'rgba(255,85,0,0.10)',
+        background: '#FFFFFF',
+        border: 'none',
         outline: 'none',
-        border: '1px solid #FF5500',
         borderRadius: '3px',
         textAlgin: 'center',
         lineHeight: '33px',
@@ -21,6 +21,10 @@ const STYLE_CSS = css({
         letterSpacing: '0',
         padding: '0',
         paddingLeft: '10px',
+    },
+    '> .errTip': {
+        background: 'rgba(255,85,0,0.10)',
+        border: '1px solid #FF5500',
     },
     '> .tipText': {
         height: '23px',
@@ -55,7 +59,7 @@ class Tip extends Component {
     render() {
         return (
             <div { ...STYLE_CSS }>
-                <input type="text" name="" id="tip"/>
+                <input type="text" name="" className="tip errTip"/>
                 <div className="tipText">
                     <span className="warn">Enter a viald Day</span>
                     <div className="triangle"></div>
