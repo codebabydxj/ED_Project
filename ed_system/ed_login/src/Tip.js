@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import { css } from 'glamor';
 
 const STYLE_CSS = css({
+    width: '340px',
+    height: '35px',
     margin: '100px 0 0 50px',
+    position: 'relative',
     '> #tip': {
         width: '338px',
         height: '33px',
         background: 'rgba(255,85,0,0.10)',
+        outline: 'none',
         border: '1px solid #FF5500',
         borderRadius: '3px',
         textAlgin: 'center',
         lineHeight: '33px',
-        position: 'relative'
-    },
-    '> #tip > span': {
         fontFamily: '',
         fontSize: '13px',
         color: '#444444',
         letterSpacing: '0',
-        paddingLeft: '10px'
+        padding: '0',
+        paddingLeft: '10px',
     },
-    '> #tip > .tipText': {
+    '> .tipText': {
         height: '23px',
         padding: '0 10px',
         background: '#FF5500',
@@ -28,17 +30,17 @@ const STYLE_CSS = css({
         textAlgin: 'center',
         lineHeight: '21px',
         position: 'absolute',
-        right: '0',
-        top: '-24px'
+        right: '-10px',
+        top: '-23px'
     },
-    '> #tip .warn': {
+    '> .tipText > .warn': {
         fontFamily: '',
         fontSize: '11px',
         color: '#FFFFFF',
         letterSpacing: '0',
         textAlign: 'center'
     },
-    '> #tip .triangle': {
+    '> .tipText > .triangle': {
         width: '6.6px',
         height: '6.6px',
         transform: 'rotate(45deg)',
@@ -53,12 +55,10 @@ class Tip extends Component {
     render() {
         return (
             <div { ...STYLE_CSS }>
-                <div id="tip">
-                    <span>1066</span>
-                    <div className="tipText">
-                        <span className="warn">Enter a viald Day</span>
-                        <div className="triangle"></div>
-                    </div>
+                <input type="text" name="" id="tip"/>
+                <div className="tipText">
+                    <span className="warn">Enter a viald Day</span>
+                    <div className="triangle"></div>
                 </div>
             </div>
         )
