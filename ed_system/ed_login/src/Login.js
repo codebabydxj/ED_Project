@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { css } from 'glamor';
+import Tip from './Tip';
 
 const ROOT_STYLE = css({
   width: '100%',
@@ -167,6 +168,7 @@ const ROOT_STYLE = css({
               Using ESQUEL Login
             </div>
           </div>
+          <Tip />
       </div>
     )
   }
