@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { css } from 'glamor';
 import Tip from './Tip';
+import DialogTip from './DialogTip';
 
 const ROOT_STYLE = css({
   width: '100%',
@@ -8,15 +9,15 @@ const ROOT_STYLE = css({
   background: '#fff',
   '> #lang': {
     height: '17px',
-    float: 'right',
-    marginTop: '20px',
-    marginRight: '20px',
     fontFamily: '',
     fontSize: '12px',
     color: '#9B9B9B',
     letterSpacing: '0',
     lineHeight: '17px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    position: 'absolute',
+    right: '20px',
+    top: '20px'
   },
   '> #login': {
     width: '408px',
@@ -141,6 +142,26 @@ const ROOT_STYLE = css({
 })
 
  class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      status: true,
+      statusType: '',
+      content: ''
+    };
+  }
+
+  tips() {
+    this.state.status = this.state.status ? false : true;
+    this.setState({
+        status: this.state.status, 
+        statusType: 'error',
+        content: 'error'
+    },()=>{
+        this.refs['dialogTip'].animationTip();
+    });
+  }
+
   render() {
     return (
       <div { ...ROOT_STYLE }>
@@ -168,6 +189,8 @@ const ROOT_STYLE = css({
               Using ESQUEL Login
             </div>
           </div>
+          <DialogTip status={this.state.status} statusType={this.state.statusType} content={this.state.content} ref="dialogTip" />
+          <button onClick={this.tips.bind(this)}>Tip</button>
           <Tip />
       </div>
     )
